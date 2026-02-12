@@ -1,3 +1,9 @@
+// Eduardo Aguilera
+// CS145
+// 2/10/26
+// Binary IO Assignment
+// Finds the sum of all integers in a file
+
 import java.io.*;
 
 public class Assignment6FileGen {
