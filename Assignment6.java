@@ -24,7 +24,7 @@ public class Assignment6 {
             DataOutputStream output = new DataOutputStream(new FileOutputStream(fileName, true));
         ) {
             for (int i = 0; i < 100; i++)
-                output.writeInt((int)(Math.random() * 100000));
+                output.writeInt((int)(Math.random() * 100));
         } System.out.println("Done");
     }
 
@@ -44,7 +44,7 @@ public class Assignment6 {
         }
     }
     public static int sumFileIntegers(String fileName) {
-        int sum = 0;
+        int sum = 0; // variable for sum
         File file = new File(fileName); // creates file object that will be refrenced but not a new file
         try (FileInputStream byteStream = new FileInputStream(file); // gets the raw bytes from the file
         DataInputStream dataTranslator = new DataInputStream(byteStream)) { // translates into date type
