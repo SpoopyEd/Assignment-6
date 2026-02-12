@@ -19,13 +19,10 @@ public class Assignment6 {
         System.out.println("The sum is: " + sumFileIntegers(fileName));
     }
     public static void createFile(String fileName) throws IOException { // code from files provided
-    // creates binary dat file full of random integers named Excercice17_02.dat
-        try (
-            DataOutputStream output = new DataOutputStream(new FileOutputStream(fileName, true));
-        ) {
-            for (int i = 0; i < 100; i++)
-                output.writeInt((int)(Math.random() * 100));
-        } System.out.println("Done");
+        try (DataOutputStream output = new DataOutputStream(new FileOutputStream(fileName));) {
+            for (int i = 0; i < 100; i++) output.writeInt((int)(Math.random() * 100000));
+        }
+        System.out.println("Done");
     }
 
     public static void printFileIntegers(String fileName) {
