@@ -1,8 +1,8 @@
 // Eduardo Aguilera
 // CS145
 // 2/10/26
-// Binary IO Assignment
-// Finds the sum of all integers in a file
+// Binary IO Assignment 6
+// Finds the sum of all integers in a binary file
 
 import java.io.*;
 
@@ -14,8 +14,9 @@ public class Assignment6 {
         } catch (IOException e) {
             System.out.println("Somethng went wrong");
         }
-        
-        readFileIntegers(fileName);
+
+        printFileIntegers(fileName);
+        System.out.println("The sum is: " + sumFileIntegers(fileName));
     }
     public static void createFile(String fileName) throws IOException { // code from files provided
     // creates binary dat file full of random integers named Excercice17_02.dat
@@ -27,7 +28,7 @@ public class Assignment6 {
         } System.out.println("Done");
     }
 
-    public static void readFileIntegers(String fileName) {
+    public static void printFileIntegers(String fileName) {
         File file = new File(fileName); // creates file object that will be refrenced but not a new file
         try (FileInputStream byteStream = new FileInputStream(file); // gets the raw bytes from the file
         DataInputStream dataTranslator = new DataInputStream(byteStream)) { // translates into date type
@@ -40,6 +41,21 @@ public class Assignment6 {
             }
         } catch (IOException e) {
             System.out.println("Error when Reading");
+        }
+    }
+    public static int sumFileIntegers(String fileName) {
+        int sum = 0;
+        File file = new File(fileName); // creates file object that will be refrenced but not a new file
+        try (FileInputStream byteStream = new FileInputStream(file); // gets the raw bytes from the file
+        DataInputStream dataTranslator = new DataInputStream(byteStream)) { // translates into date type
+            while (dataTranslator.available() > 0) { // checks how many bytes are left in the raw stream
+                int value = dataTranslator.readInt(); // translator grabs 4 bytes and turns them back into an int
+                sum += value; // adds value to the sum
+            } // continues adding values until there are none
+        } catch (IOException e) {
+            System.out.println("Error when Reading");
+        } finally {
+            return sum;
         }
     }
 }
