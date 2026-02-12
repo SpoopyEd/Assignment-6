@@ -20,7 +20,7 @@ public class Assignment6 {
     }
     public static void createFile(String fileName) throws IOException { // code from files provided
         try (DataOutputStream output = new DataOutputStream(new FileOutputStream(fileName));) {
-            for (int i = 0; i < 100; i++) output.writeInt((int)(Math.random() * 100000));
+            for (int i = 0; i < 10; i++) output.writeInt((int)(Math.random() * 100));
         }
         System.out.println("Done");
     }
